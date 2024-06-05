@@ -61,6 +61,16 @@
       ],
       "Hash": "1db3dea2788722f773ca2ccecd242a5d"
     },
+    "jsonlite": {
+      "Package": "jsonlite",
+      "Version": "1.8.8",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "methods"
+      ],
+      "Hash": "e1b9c55281c5adc4dd113652d9e26768"
+    },
     "lifecycle": {
       "Package": "lifecycle",
       "Version": "1.0.4",
