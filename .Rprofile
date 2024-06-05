@@ -1,11 +1,11 @@
 source("renv/activate.R")
 options(vsc.rstudioapi = TRUE)
+# jsonlite needed for VScode and needs to be
+# referenced in code to be captured by renv
+  library("jsonlite")
 
 if (interactive() && Sys.getenv("TERM_PROGRAM") == "vscode") {
-  # jsonlite needed for VScode and needs to be
-  # referenced in code to be captured by renv
-  library("jsonlite")
-  
+
   if ("httpgd" %in% .packages(all.available = TRUE)) {
     options(vsc.plot = FALSE)
     options(device = function(...) {
