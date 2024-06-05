@@ -9,7 +9,7 @@
 	"features": {
 		"ghcr.io/rocker-org/devcontainer-features/quarto-cli:1": {},
 	    	"ghcr.io/rocker-org/devcontainer-features/r-packages:1": {
-			"packages": "renv",
+			"packages": "renv,jsonlite",
 			"installSystemRequirements": true
 		}
 	},
