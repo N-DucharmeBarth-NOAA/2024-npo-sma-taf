@@ -37,18 +37,18 @@
 			"ms-vscode.live-server"
 		]
 	  }
-	},
-	  "forwardPorts": [8787],
-	  "portsAttributes": {
-		"8787": {
-			"label": "Rstudio",
-			"requireLocalPort": true,
-			"onAutoForward": "ignore"
-		}
-	  },		  
+	}//,
+	//   "forwardPorts": [8787],
+	//   "portsAttributes": {
+	// 	"8787": {
+	// 		"label": "Rstudio",
+	// 		"requireLocalPort": true,
+	// 		"onAutoForward": "ignore"
+	// 	}
+	//   },		  
 	  // Use 'postCreateCommand' to run commands after the container is created.
 	  //"postCreateCommand": "Rscript .devcontainer/setup.r",
-	  "postAttachCommand": "sudo rstudio-server start",
-	  "remoteUser": "rstudio"
+	//   "postAttachCommand": "sudo rstudio-server start",
+	//   "remoteUser": "rstudio"
 	
 }
