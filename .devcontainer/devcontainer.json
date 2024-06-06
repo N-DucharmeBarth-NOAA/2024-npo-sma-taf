@@ -3,8 +3,8 @@
 // that is the preferred IDE over VSCode.
 // R packages commonly used with SS3 are also installed (see install.r).
 {
-	"name": "R (rocker/tidyverse)",
-   	"image": "ghcr.io/rocker-org/devcontainer/tidyverse:4.4",
+	"name": "R (rocker/r-ver)",
+   	"image": "ghcr.io/rocker-org/devcontainer/r-ver:4.4",
 
 	// "features": {
 	// 	"ghcr.io/rocker-org/devcontainer-features/r-apt:latest": {},
@@ -16,7 +16,7 @@
 	"customizations": {
 	  "vscode": {
 		  "settings": {
-			"r.rterm.linux": "/usr/local/bin/radian",
+			//"r.rterm.linux": "/usr/local/bin/radian",
 			"r.bracketedPaste": true,
 			"r.plot.useHttpgd": true,
     		"r.lsp.diagnostics": false,
@@ -46,8 +46,7 @@
 	// 		"onAutoForward": "ignore"
 	// 	}
 	//   },		  
-	  // Use 'postCreateCommand' to run commands after the container is created.
-	  //"postCreateCommand": "Rscript .devcontainer/setup.r",
+	//   // Use 'postCreateCommand' to run commands after the container is created.
 	//   "postAttachCommand": "sudo rstudio-server start",
 	//   "remoteUser": "rstudio"
 	
