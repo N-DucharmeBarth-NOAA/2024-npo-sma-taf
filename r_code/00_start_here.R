@@ -26,5 +26,6 @@
 #________________________________________________________________________________________________________________________________________________________________________________________________________
 # run the TAF analysis
     source.taf("../r_code/01_data.R") # format the data for the Bayesian State-Space Surplus Production model (BSPM)
-
+    source.taf("../r_code/02a_model.R") # run a representative model from the model ensemble (~ runtime)
+    # source.taf("../r_code/02b_model.R") # run the entire model ensemble (~ runtime) 
 
