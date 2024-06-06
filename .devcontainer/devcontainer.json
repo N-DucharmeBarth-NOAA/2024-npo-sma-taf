@@ -6,13 +6,13 @@
 	"name": "R (rocker/tidyverse)",
    	"image": "ghcr.io/rocker-org/devcontainer/tidyverse:4.4",
 
-	"features": {
-		"ghcr.io/rocker-org/devcontainer-features/r-apt:latest": {},
-	    	"ghcr.io/rocker-org/devcontainer-features/r-packages:1": {
-			"packages": "renv",
-			"installSystemRequirements": true
-		}
-	},
+	// "features": {
+	// 	"ghcr.io/rocker-org/devcontainer-features/r-apt:latest": {},
+	//     	"ghcr.io/rocker-org/devcontainer-features/r-packages:1": {
+	// 		"packages": "renv",
+	// 		"installSystemRequirements": true
+	// 	}
+	// },
 	"customizations": {
 	  "vscode": {
 		  "settings": {
@@ -47,6 +47,7 @@
 		}
 	  },		  
 	  // Use 'postCreateCommand' to run commands after the container is created.
+	  "postCreateCommand": "Rscript .devcontainer/setup.r",
 	  "postAttachCommand": "sudo rstudio-server start",
 	  "remoteUser": "rstudio"
 	
