@@ -19,13 +19,13 @@
 #________________________________________________________________________________________________________________________________________________________________________________________________________
 # initialize the TAF analysis
 # Process the SOFTWARE.bib & DATA.bib  metadata files to set up the files required for the analysis.
-# SOFTWARE.bib contains the Stan model code which will be compiled into executables used to fit the model
+# SOFTWARE.bib contains the Stan model code which will be compiled into executables used to fit the model and R helper functions
 # DATA.bib contains the input data needed to fit the models
     taf.boot()
 
 #________________________________________________________________________________________________________________________________________________________________________________________________________
 # run the TAF analysis
     source.taf("../r_code/01_data.R") # format the data for the Bayesian State-Space Surplus Production model (BSPM)
-    source.taf("../r_code/02a_model.R") # run a representative model from the model ensemble (~ runtime)
-    # source.taf("../r_code/02b_model.R") # run the entire model ensemble (~ runtime) 
+    source.taf("../r_code/02a_model.R") # run a representative model from the model ensemble (~ 4 minutes runtime; single-threaded)
+    # source.taf("../r_code/02b_model.R") # run the entire model ensemble (~ 70 minutes runtime; single-threaded) 
 
