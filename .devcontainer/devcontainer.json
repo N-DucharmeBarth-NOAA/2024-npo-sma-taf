@@ -37,7 +37,8 @@
 			"rdebugger.r-debugger",
 			"ms-vsliveshare.vsliveshare",
 			"mathematic.vscode-pdf",
-			"ms-vscode.live-server"
+			"ms-vscode.live-server",
+			"mechatroner.rainbow-csv"
 		]
 	  }
 	},
