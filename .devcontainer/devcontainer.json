@@ -12,7 +12,7 @@
 			"packages": "make,gcc,g++,libcurl4-openssl-dev,libv8-dev"
 		},
 	    "ghcr.io/rocker-org/devcontainer-features/r-packages:1": {
-			"packages": "renv",
+			"packages": "languageserver,renv",
 			"installSystemRequirements": true
 		}
 	},
