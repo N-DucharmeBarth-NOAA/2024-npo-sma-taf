@@ -451,16 +451,6 @@
       ],
       "Hash": "0080607b4a1a7b28979aecef976d8bc2"
     },
-    "jsonlite": {
-      "Package": "jsonlite",
-      "Version": "1.8.8",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Requirements": [
-        "methods"
-      ],
-      "Hash": "e1b9c55281c5adc4dd113652d9e26768"
-    },
     "labeling": {
       "Package": "labeling",
       "Version": "0.4.3",

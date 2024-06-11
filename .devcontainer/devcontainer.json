@@ -10,10 +10,6 @@
 		"ghcr.io/rocker-org/devcontainer-features/r-apt:latest": {},
 		"ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
 			"packages": "make,gcc,g++,libcurl4-openssl-dev,libv8-dev"
-		},
-	    "ghcr.io/rocker-org/devcontainer-features/r-packages:1": {
-			"packages": "languageserver,renv",
-			"installSystemRequirements": true
 		}
 	},
 	"customizations": {
@@ -45,12 +41,13 @@
 	  "forwardPorts": [8787],
 	  "portsAttributes": {
 		"8787": {
-			"label": "Rstudio",
+			"label": "rstudio",
 			"requireLocalPort": true,
 			"onAutoForward": "ignore"
 		}
 	  },		  
 	  // Use 'postCreateCommand' to run commands after the container is created.
+	  "postCreateCommand": "Rscript .devcontainer/setup.r",
 	  "postAttachCommand": "sudo rstudio-server start",
 	  "remoteUser": "rstudio"
 }
