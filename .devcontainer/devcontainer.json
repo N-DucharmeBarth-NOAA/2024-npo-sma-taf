@@ -10,6 +10,10 @@
 		"ghcr.io/rocker-org/devcontainer-features/r-apt:latest": {},
 		"ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
 			"packages": "make,gcc,g++,libcurl4-openssl-dev,libv8-dev"
+		},
+		"ghcr.io/rocker-org/devcontainer-features/r-packages:1": {
+			"packages": "languageserver,jsonlite,renv",
+			"installSystemRequirements": true
 		}
 	},
 	"customizations": {
