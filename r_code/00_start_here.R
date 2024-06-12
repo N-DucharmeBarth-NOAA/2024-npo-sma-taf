@@ -26,6 +26,8 @@
 #________________________________________________________________________________________________________________________________________________________________________________________________________
 # run the TAF analysis
     source.taf("../r_code/01_data.R") # format the data for the Bayesian State-Space Surplus Production model (BSPM)
-    source.taf("../r_code/02a_model.R") # run a representative model from the model ensemble (~ 4 minutes runtime; single-threaded)
-    # source.taf("../r_code/02b_model.R") # run the entire model ensemble (~ 70 minutes runtime; single-threaded) 
-
+    source.taf("../r_code/02a_model.R") # run a representative model from the model ensemble (~4 minutes runtime; single-threaded)
+    # source.taf("../r_code/02b_model.R") # run the entire model ensemble (~70 minutes runtime; single-threaded) 
+    source.taf("../r_code/03a_output.R") # summarize output (medians) from the representative model
+    # source.taf("../r_code/03b_output.R") # summarize output (medians) from each model in the ensemble (~5 minutes; single-threaded)
+    source.taf("../r_code/04a_report.R") # make some plots for the representative model
