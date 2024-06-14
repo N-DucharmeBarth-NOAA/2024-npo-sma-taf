@@ -19,7 +19,7 @@
 	"customizations": {
 	  "vscode": {
 		  "settings": {
-			"r.rterm.linux": "/usr/local/bin/r",
+			"r.rterm.linux": "/usr/local/bin/radian",
 			"r.bracketedPaste": true,
 			"r.plot.useHttpgd": true,
     		"r.lsp.diagnostics": false,
