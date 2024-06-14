@@ -54,7 +54,7 @@
     base_diags_dt$index = ssp_scenarios$index[i]
     base_diags_dt$main_prior = ssp_scenarios$main_prior[i]
     base_diags_dt$catch = ssp_scenarios$catch[i]
-    base_diags_dt = base_diags_dt[,.(run_label,index,main_prior,catch,divergent,min_neff,index_rmse,index_loglik)]
+    base_diags_dt = base_diags_dt[,.(run_label,index,main_prior,catch,divergent,max_rhat,min_neff,index_rmse,index_loglik)]
 
 #________________________________________________________________________________________________________________________________________________________________________________________________________
 # extract time series (medians): removals, N, D, U, D_Dmsy, U_Umsy
