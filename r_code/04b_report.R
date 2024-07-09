@@ -166,6 +166,7 @@
     fit_dt = fit_dt[run_label%in%summary_dt.original$run_label]                
 #________________________________________________________________________________________________________________________________________________________________________________________________________
 # save output
+    fwrite(summary_dt,file=paste0("report/summary.csv"))
     fwrite(ensemble,file=paste0("report/ensemble.csv"))
     fwrite(samples_ts,file=paste0("report/samples_ts.csv"))
     fwrite(prior_posterior,file=paste0("report/prior_posterior.csv"))
