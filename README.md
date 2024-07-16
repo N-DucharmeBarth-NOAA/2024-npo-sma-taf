@@ -104,6 +104,17 @@ Warning messages:
 2: Some Pareto k diagnostic values are too high. See help('pareto-k-diagnostic') for details.
 ```
 
+### Note
+The following convergence criteria was used to determine models retained for the final ensemble:
+- $\hat{R} < 1.01$
+- Bulk effective sample size (ESS) greater than 100 samples per chain. Five chains were used so $ESS > 500$.
+- No divergent transitions in posterior samples.
+
+Criteria were based on [Monnahan 2024](https://doi.org/10.1016/j.fishres.2024.107024).
+
+The original model runs to produce management advice used R version 4.3.1 and identified that models 5, 8, 12, and 30 failed to meet these conversion criteria. Models within this repository were run with R version 4.4.0 to address an identified security risk in earlier versions of R. Doing so resulted in estimates that were virtually identical. However, using R version 4.4.0 resulted in model 16 having $\hat{R}=1.012$ which is marginally higher than the convergence criteria. All other convergence criteria for all other models were unchanged between the two versions. Including/excluding model 16 from the ensemble does not change the management advice.
+
+
 ### License
 
 The code contained in this repository is licensed under the GNU GENERAL PUBLIC LICENSE version 3 ([GPLv3](https://www.gnu.org/licenses/gpl-3.0.html)).
