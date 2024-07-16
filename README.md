@@ -1,6 +1,6 @@
 # 2024-npo-sma-taf
 
-Input data, model code, and executables needed to reproduce the 2024 [ISC](https://isc.fra.go.jp/index.html) stock assessment of North Pacific Ocean shortfin mako shark. 
+Input data, model code, and executables needed to reproduce the 2024 [ISC](https://isc.fra.go.jp/index.html) stock assessment of North Pacific Ocean shortfin mako shark. The full assessment report can be found [here](https://meetings.wcpfc.int/node/22828), and is a product of the ISC Shark Working Group ([SHARKWG](https://isc.fra.go.jp/working_groups/shark.html)).
 
 [R](https://www.r-project.org/) code to reproduce the assessment results are provided in the Transparent Assessment Framework ([TAF](https://www.ices.dk/data/assessment-tools/Pages/transparent-assessment-framework.aspx)). R code in the TAF style is structured
 to take the user through:
@@ -12,6 +12,46 @@ to take the user through:
 Two workflows are provided:
 - Users seeking to reproduce a single example model should run the R script [`00a_start_here.R`](https://github.com/N-DucharmeBarth-NOAA/2024-npo-sma-taf/blob/main/r_code/00a_start_here.R).
 - Users seeking to reproduce the entire model ensemble should run the R script [`00b_start_here.R`](https://github.com/N-DucharmeBarth-NOAA/2024-npo-sma-taf/blob/main/r_code/00b_start_here.R). Note that running the full model ensemble will take ~70 minutes.
+
+### Expected output
+
+Output from either workflow will be created within the `TAF/` folder. The [`01_data.R`](https://github.com/N-DucharmeBarth-NOAA/2024-npo-sma-taf/blob/main/r_code/01_data.R) script will create the `TAF/data/` folder and populate it with the input files needed to run either work flow.
+
+#### Single example model
+
+In the single example model case, the [`02a_model.R`](https://github.com/N-DucharmeBarth-NOAA/2024-npo-sma-taf/blob/main/r_code/02a_model.R) script fits the example model using Stan and writes output files (in *csv* format) to the `TAF/model/0020_5.B.B.J.EC2_0/` directory.
+
+The [`03a_output.R`](https://github.com/N-DucharmeBarth-NOAA/2024-npo-sma-taf/blob/main/r_code/03a_output.R) script post-processes the output and places processed *csv* files in the `TAF/output/0020_5.B.B.J.EC2_0/` directory.
+
+Lastly, [`04a_report.R`](https://github.com/N-DucharmeBarth-NOAA/2024-npo-sma-taf/blob/main/r_code/04a_report.R) script makes two plots:
+- `example_model.mgmt_ts.png` which shows time series (median, solid lines) of numbers, depletion, exploitation rate, density relative to density at MSY, exploitation rate, relative to exploitation rate at MSY, and total removals. The 50th (dark shading) and 95th (light shading) credible intervals are also shown. 
+- `example_model.index_fit.png` which shows the Posterior Predictive Fit (median, solid line) to the observed index (black points with vertical bars showing estimated observation error). The 50th (dark shading) and 95th (light shading) posterior predictive intervals are also shown. 
+
+#### Entire model ensemble
+
+In the entire model ensemble case, the [`02b_model.R`](https://github.com/N-DucharmeBarth-NOAA/2024-npo-sma-taf/blob/main/r_code/02b_model.R) script fits the 32 models in the ensemble using Stan and writes output files (in *csv* format) to the following directories in the `TAF/model/` folder:
+```
+2024-npo-sma-taf  
+│   ...
+└───TAF/
+│   │   ...
+│   └───model/
+│       └───0001_1.B.B.J.ELL_0/
+│       │   ...
+│       └───0032_5.E.B.J.EC3_0/
+│   ...
+```
+
+The [`03b_output.R`](https://github.com/N-DucharmeBarth-NOAA/2024-npo-sma-taf/blob/main/r_code/03b_output.R) script post-processes the output from each model run and places processed *csv* files in the corresponding `TAF/output/` directories.
+
+Lastly, [`04b_report.R`](https://github.com/N-DucharmeBarth-NOAA/2024-npo-sma-taf/blob/main/r_code/04b_report.R) script saves a number of *csv* files in the `TAF/report/` directory and five plots: 
+- `ensemble.index_fit.png` which shows the Posterior Predictive Fit (median, solid line) to the observed index (black points with vertical bars showing estimated observation error). The 50th (dark shading) and 95th (light shading) posterior predictive intervals are also shown.
+- `ensemble.mgmt_dist.png` which shows the posterior distribution of key management quantities.
+- `ensemble.mgmt_dist_comp.png` which shows the effect of excluding the additional model that failed to meet convergence criteria when running with R version 4.4.0.
+- `ensemble.mgmt_ts.png` which shows time series (median, solid lines) of numbers, depletion, exploitation rate, density relative to density at MSY, exploitation rate, relative to exploitation rate at MSY, and total removals. The 50th (dark shading) and 95th (light shading) credible intervals are also shown.
+- `ensemble.kobe.png` which shows the relative stock status in terms of a Kobe plot (and associated bivariate posterior distribution).
+
+The `summary.csv` in the `TAF/report/` directory contains the convergence status for each model in terms of number of divergent posterior samples, Rhat, and effective sample size.
 
 ### Running the models locally
 
@@ -53,6 +93,15 @@ renv::restore()
 Alternatively, models can be run in the cloud using [GitHub Codespaces](https://github.com/features/codespaces). A virtual Linux machine has already been [configured](https://github.com/N-DucharmeBarth-NOAA/2024-npo-sma-taf/blob/main/.devcontainer/devcontainer.json) so users can simply [open a Codespace](https://docs.github.com/en/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository) using default options. Initial creation of the Codespace can take 15-20 minutes. Once the Codespace is created, open an R terminal. This should prompt the `renv` package to bootstrap itself as described above. Once all packages have been installed the user can initiate either the `00a_start_here.R` or `00b_start_here.R` TAF workflows. If `renv` does not bootstrap automatically then run:
 ```
 renv::restore()
+```
+
+### Expected warnings
+The following warning messages are expected, and do not indicate that models ran incorrectly.
+```
+Warning messages:
+1: In melt.data.table(.) :
+  id.vars and measure.vars are internally guessed when both are 'NULL'. All non-numeric/integer/logical type columns are considered id.vars, which in this case are columns []. Consider providing at least one of 'id' or 'measure' vars in future.
+2: Some Pareto k diagnostic values are too high. See help('pareto-k-diagnostic') for details.
 ```
 
 ### License
