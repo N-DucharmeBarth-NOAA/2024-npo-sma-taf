@@ -47,7 +47,7 @@ The [`03b_output.R`](https://github.com/N-DucharmeBarth-NOAA/2024-npo-sma-taf/bl
 Lastly, [`04b_report.R`](https://github.com/N-DucharmeBarth-NOAA/2024-npo-sma-taf/blob/main/r_code/04b_report.R) script saves a number of *csv* files in the `TAF/report/` directory and five plots: 
 - `ensemble.index_fit.png` which shows the Posterior Predictive Fit (median, solid line) to the observed index (black points with vertical bars showing estimated observation error). The 50th (dark shading) and 95th (light shading) posterior predictive intervals are also shown.
 - `ensemble.mgmt_dist.png` which shows the posterior distribution of key management quantities.
-- `ensemble.mgmt_dist_comp.png` which shows the effect of excluding the additional model that failed to meet convergence criteria when running with R version 4.4.0.
+- `ensemble.mgmt_dist_comp.png` which shows the effect of excluding the additional model that failed to meet convergence criteria when running with R version 4.4.0 (see **Note** below).
 - `ensemble.mgmt_ts.png` which shows time series (median, solid lines) of numbers, depletion, exploitation rate, density relative to density at MSY, exploitation rate, relative to exploitation rate at MSY, and total removals. The 50th (dark shading) and 95th (light shading) credible intervals are also shown.
 - `ensemble.kobe.png` which shows the relative stock status in terms of a Kobe plot (and associated bivariate posterior distribution).
 
@@ -112,7 +112,7 @@ The following convergence criteria was used to determine models retained for the
 
 Criteria were based on [Monnahan 2024](https://doi.org/10.1016/j.fishres.2024.107024).
 
-The original model runs to produce management advice used R version 4.3.1 and identified that models 5, 8, 12, and 30 failed to meet these conversion criteria. Models within this repository were run with R version 4.4.0 to address an identified security risk in earlier versions of R. Doing so resulted in estimates that were virtually identical. However, using R version 4.4.0 resulted in model 16 having $\hat{R}=1.012$ which is marginally higher than the convergence criteria. All other convergence criteria for all other models were unchanged between the two versions. Including/excluding model 16 from the ensemble does not change the management advice.
+The original model runs to produce management advice used R version 4.3.1 and identified that models 5, 8, 12, and 30 failed to meet these conversion criteria. Models within this repository were run with R version 4.4.0 to address an identified security risk in earlier versions of R. Doing so resulted in estimates that were virtually identical. However, using R version 4.4.0 resulted in model 16 having $\hat{R}=1.012$ which is marginally higher than the convergence criteria. All other convergence criteria for all other models were unchanged between the two versions. Including/excluding model 16 from the ensemble does not change the management advice as seen in figure `TAF/report/ensemble.mgmt_dist_comp.png`.
 
 
 ### License
