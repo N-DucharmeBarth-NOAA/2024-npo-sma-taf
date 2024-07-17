@@ -13,6 +13,8 @@ Two workflows are provided:
 - Users seeking to reproduce a single example model should run the R script [`00a_start_here.R`](https://github.com/N-DucharmeBarth-NOAA/2024-npo-sma-taf/blob/main/r_code/00a_start_here.R).
 - Users seeking to reproduce the entire model ensemble should run the R script [`00b_start_here.R`](https://github.com/N-DucharmeBarth-NOAA/2024-npo-sma-taf/blob/main/r_code/00b_start_here.R). Note that running the full model ensemble will take ~70 minutes.
 
+A companion repository housing the final model output and code needed to produce a Shiny dashboard for the 2024 ISC stock assessment of North Pacific Ocean shortfin mako shark can be found [here](https://github.com/N-DucharmeBarth-NOAA/2024-npo-sma-shiny).
+
 ### Expected output
 
 Output from either workflow will be created within the `TAF/` folder. The [`01_data.R`](https://github.com/N-DucharmeBarth-NOAA/2024-npo-sma-taf/blob/main/r_code/01_data.R) script will create the `TAF/data/` folder and populate it with the input files needed to run either work flow.
